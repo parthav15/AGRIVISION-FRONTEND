@@ -25,7 +25,7 @@ const MapPage = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `http://127.0.0.1:8000/crops/${district}/${selectedCrop}`
+        `https://agrivision.pythonanywhere.com/crops/${district}/${selectedCrop}`
       );
       if (!response.ok) throw new Error('Failed to fetch data');
       const data = await response.json();
