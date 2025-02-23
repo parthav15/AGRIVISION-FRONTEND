@@ -4,8 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ArrowUturnLeftIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import Navbar from "../HomePage/Navbar";
 import Footer from "../HomePage/Footer";
-
-const BASE_URL = 'http://localhost:8000/';
+import { BASE_URL } from "../../config";
 
 const PostDetail = () => {
     const { id } = useParams();

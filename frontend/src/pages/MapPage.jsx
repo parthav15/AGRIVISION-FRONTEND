@@ -4,6 +4,7 @@ import Navbar from '../components/HomePage/Navbar';
 import PunjabMap from '../components/Map/PunjabMap';
 import Footer from '../components/HomePage/Footer';
 import DistrictDataPanel from '../components/Map/DistrictDataPanel';
+import { BASE_URL } from '../config';
 
 const MapPage = () => {
   const [selectedDistrict, setSelectedDistrict] = React.useState(null);
@@ -25,7 +26,7 @@ const MapPage = () => {
     setLoading(true);
     try {
       const response = await fetch(
-        `https://agrivision.pythonanywhere.com/crops/${district}/${selectedCrop}`
+        `${BASE_URL}crops/${district}/${selectedCrop}`
       );
       if (!response.ok) throw new Error('Failed to fetch data');
       const data = await response.json();
