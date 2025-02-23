@@ -1,10 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PhoneIcon, EnvelopeIcon, MapPinIcon, ClockIcon } from '@heroicons/react/24/outline';
 import Navbar from '../components/HomePage/Navbar';
 import Footer from '../components/HomePage/Footer';
 
 const ContactUs = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      navigate('/login-register');
+    }
+  }, [navigate]);
+
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = (e) => {

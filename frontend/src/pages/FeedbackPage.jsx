@@ -1,10 +1,20 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { StarIcon, ChatBubbleLeftEllipsisIcon, UserIcon, EnvelopeIcon, MapPinIcon } from '@heroicons/react/24/outline';
 import Navbar from '../components/HomePage/Navbar';
 import Footer from '../components/HomePage/Footer';
 
 const Feedback = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      navigate('/login-register');
+    }
+  }, [navigate]);
+
   const [rating, setRating] = useState(0);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
