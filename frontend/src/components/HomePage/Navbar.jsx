@@ -59,7 +59,7 @@ function Navbar() {
           </div>
 
           {/* Call to Action Button */}
-          <Link to="/login" className="hidden md:flex items-center px-6 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 transition-colors duration-200">
+          <Link to="/login-register" className="hidden md:flex items-center px-6 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 transition-colors duration-200">
             Login/Register
           </Link>
         </div>
