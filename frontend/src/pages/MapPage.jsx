@@ -1,4 +1,5 @@
-// MapPage.jsx
+import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import React from 'react';
 import Navbar from '../components/HomePage/Navbar';
 import PunjabMap from '../components/Map/PunjabMap';
@@ -7,6 +8,15 @@ import DistrictDataPanel from '../components/Map/DistrictDataPanel';
 import { BASE_URL } from '../config';
 
 const MapPage = () => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      navigate('/login-register');
+    }
+  }, [navigate]);
+
   const [selectedDistrict, setSelectedDistrict] = React.useState(null);
   const [selectedCrop, setSelectedCrop] = React.useState('Wheat');
   const [districtData, setDistrictData] = React.useState(null);
